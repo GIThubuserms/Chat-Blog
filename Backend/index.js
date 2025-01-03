@@ -17,6 +17,9 @@ const dbpass = "chatblog";
   }
 })();
 
+console.log("testing");
+
+
 app.use("/api/v1/user", userrouter);
 
 app.listen(4000, (req, res) => {
