@@ -1,12 +1,13 @@
 import express from "express";
-import { userrouter } from "./src/routes/user.route.js";
+import {userrouter} from "./src/routes/user.route.js";
 import mongoose from "mongoose";
+import cors from 'cors'
 
 const app = express();
+app.use(cors({origin:"*"}))
 app.use(express.json());
-
-const dbname = "mongodb+srv://murtaza:murtaza123@cluster0.kll2d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
-const dbpass = "chatblog";
+const dbname ="mongodb+srv://murtaza:murtaza123@cluster0.kll2d.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+const dbpass = "test";
 (async () => {
   try {
     const connectionInstance = await mongoose.connect(`${dbname}${dbpass}`);
