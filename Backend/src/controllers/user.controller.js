@@ -35,8 +35,6 @@ await createToken(newuser._id,res)
 return res.status(200).json({message:"User Created Successfully",newwuser})
 }
 
-
-
 export const login = async (req, res) => {
     const { email, password } = req.body;
     try {
@@ -44,10 +42,15 @@ export const login = async (req, res) => {
             return res.status(400).json({ error: "Email and password is required" });
           }
       const user = await User.findOne({ email });
-      const isMatch = await bcrypt.compare(password, user.password);
-      if (!user || !isMatch) {
-        return res.status(400).json({ error: "Invalid user credential" });
+      if (!user) {
+        return res.status(400).json({ error: "User Not Found" });
       }
+       const isMatch=await user.verifypassword(password)
+      // const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return res.status(400).json({ error: "Password doesnot match" });
+      }
+
       await createToken(user._id, res);
       return res.status(201).json({
         message: "User logged in successfully",
@@ -62,7 +65,9 @@ export const login = async (req, res) => {
       return res.status(500).json({ error: "Internal server error" });
     }
   };
-  export const logout = async (req, res) => {
+
+
+export const logout = async (req, res) => {
     try {
       res.clearCookie("jwt");
      return res.status(201).json({ message: "User logged out successfully" });
@@ -71,3 +76,21 @@ export const login = async (req, res) => {
       return res.status(500).json({ error: "Internal server error" });
     }
   };
+
+export const alluser=async(req,res)=>{
+ try {
+  const loggedinuserid=req.user._id
+  console.log(loggedinuserid);
+  
+   const allusers=await User.find({_id:{$ne:loggedinuserid}}).select('-password -createdAt -updatedAt -__v')
+   console.log(allusers);
+   
+   return res.status(201).json({message:"User fetched",allusers})
+
+ } catch (error) {
+  console.log(error);
+  res.status(500).json({message:"Server error"})
+  
+ }
+
+}  

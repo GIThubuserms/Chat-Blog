@@ -1,14 +1,14 @@
 import React from 'react'
+import Logoutbtn from './components/mostleft/logoutbtn'
 import Left from './components/left/left'
 import Right from './components/right/right'
-import Logoutbtn from './components/mostleft/logoutbtn'
 
 function App() {
   return (
-    <div className='h-screen flex w-full'>
-     <Logoutbtn/>
-     <Left/>
-     <Right/>
+    <div className='w-full flex h-screen'>
+      <Logoutbtn/>
+        <Left/>
+        <Right/>
     </div>
   )
 }

@@ -6,10 +6,7 @@ const createToken=async(id,res)=>{
     if(!token){
         throw new Error('Error while creating a Token')
     } 
-    const options={
-        httpOnly:true,
-        secure:true
-    }
-    res.cookie('jwt',token,options)
+   
+    res.cookie('jwt',token)
 }
 export default createToken;
