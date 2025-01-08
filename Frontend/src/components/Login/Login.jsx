@@ -4,6 +4,7 @@ import axios from 'axios'
 import  {useAuth} from '../../context/Authcontext'
 import { Link, useNavigate } from 'react-router-dom'
 import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
 
 
 function Login() {
@@ -24,12 +25,13 @@ function Login() {
             console.log(success);
             localStorage.setItem('messenger',JSON.stringify(response.data))
             setuserdata(response.data)
+            toast.success("User Logged In successfully")
             navigate('/')
             }
         } catch (error) {
             console.log(error);
             
-            alert(error.response?.data?.error);
+            toast.error(error.response?.data?.error);
             
         }
    }

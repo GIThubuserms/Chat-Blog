@@ -80,11 +80,9 @@ export const logout = async (req, res) => {
 export const alluser=async(req,res)=>{
  try {
   const loggedinuserid=req.user._id
-  console.log(loggedinuserid);
+
   
-   const allusers=await User.find({_id:{$ne:loggedinuserid}}).select('-password -createdAt -updatedAt -__v')
-   console.log(allusers);
-   
+   const allusers=await User.find({_id:{$ne:loggedinuserid}}).select('-password ')   
    return res.status(201).json({message:"User fetched",allusers})
 
  } catch (error) {

@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import {useForm} from 'react-hook-form'
 import axios from 'axios'
 import {useAuth} from '../../context/Authcontext'
+import { ToastContainer, toast } from 'react-toastify';
+
 
 function Signup() {
     const {register,watch,handleSubmit,formState:{errors}}=useForm()
@@ -28,12 +30,12 @@ function Signup() {
             const success=response.data.message
             console.log(success);
             localStorage.setItem('messenger',JSON.stringify(response.data))
-            alert(success)
+            toast.success(success)
             setuserdata(response.data)
             navigate('/')
             }
         } catch (error) {
-            alert(error.response.data?.message||error);
+            toast.error(error.response.data?.message||error);
             
         }
        }

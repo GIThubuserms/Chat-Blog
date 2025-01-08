@@ -3,14 +3,10 @@ import Cookies from 'js-cookie'
 
 export const Authcontext = createContext()
 
-
 export const Authprovider = ({ children }) => {
      
-     
-    const usertokenanddata = Cookies.get('jwt') || localStorage.getItem('messenger')
-   
-    //const [userdata, setuserdata] = useState(usertokenanddata ? JSON.parse(usertokenanddata):undefined)
-    const [userdata, setuserdata] = useState(usertokenanddata?usertokenanddata:undefined)
+    const usertokenanddata = localStorage.getItem('messenger')
+     const [userdata, setuserdata] = useState(usertokenanddata ? JSON.parse(usertokenanddata):undefined)
     return <Authcontext.Provider value={{ userdata, setuserdata }}>
         {children}
     </Authcontext.Provider>

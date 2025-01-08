@@ -18,7 +18,6 @@ export const getallusers =()=> {
                     'Authorization':`Bearer ${token}`
                 }
                 })
-                console.log(response.data.allusers);
                 setallusers(response.data.allusers)
                 setloading(false)
             }

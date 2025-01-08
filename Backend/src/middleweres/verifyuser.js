@@ -11,7 +11,7 @@ try {
     }
     
     const verfiedtoken=jwt.verify(token,jwttoken)
-    console.log(verfiedtoken)
+  
     if(!verfiedtoken){
       return   res.status(400).json({message:"User Not Verified"})
     }
@@ -20,9 +20,7 @@ try {
     if(!verifieduser){
        return  res.status(400).json({message:"User Not Found"})
     }
-    console.log(verifieduser);
-    
-
+   
    req.user=verifieduser
    next()
 } catch (error) {

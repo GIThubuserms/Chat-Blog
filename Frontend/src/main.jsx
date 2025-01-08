@@ -7,6 +7,8 @@ import Signup from './components/Signup/Signup.jsx'
 import Login from './components/Login/Login.jsx'
 import ProtectedRoutes from './components/routes/ProtectedRoutes.jsx'
 import App from './App.jsx'
+import { SocketProvider } from './context/SocketContext.jsx'
+import { ToastContainer, toast } from 'react-toastify';
 
 const isuserauth=localStorage.getItem('messenger')
 const router = createBrowserRouter(
@@ -23,6 +25,9 @@ const router = createBrowserRouter(
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <Authprovider>
+    <ToastContainer/>
+    <SocketProvider>
     <RouterProvider router={router}></RouterProvider>
+ </SocketProvider>
   </Authprovider>
 )

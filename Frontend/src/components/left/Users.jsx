@@ -7,7 +7,7 @@ function Users() {
   console.log();
   
   return (
-    <div style={{maxHeight:'calc(82vh - 1vh)'}} className='no-scrollbar overflow-y-auto'>
+    <div style={{maxHeight:'calc(82vh - 1vh)'}} className='no-scrollbar  overflow-y-auto'>
       {allusers.map((user,index)=><User key={index} user={user} />)}
     </div>
   )
