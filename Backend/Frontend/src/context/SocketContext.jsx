@@ -11,7 +11,7 @@ export const SocketProvider = ({ children }) => {
     useEffect(() => {
 
         if (userdata) {
-            const Socket = io('http://localhost:5002/', { query: { userId: userdata?.user._id } })
+            const Socket = io('https://chat-blog-1k90.onrender.com/', { query: { userId: userdata?.user._id } })
             setsocket(Socket)
             console.log(socket);
             

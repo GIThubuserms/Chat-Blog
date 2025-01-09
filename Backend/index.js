@@ -13,7 +13,7 @@ const app = express();
 const server = createServer(app);
 export const io = new Server(server, {
   cors: {
-    origin: "http://localhost:4001",
+    origin: "https://chat-blog-1k90.onrender.com/",
     methods: ["GET", "POST"],
   },
 });
