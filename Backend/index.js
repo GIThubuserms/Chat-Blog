@@ -6,7 +6,8 @@ import cookieParser from "cookie-parser";
 import { messagerouter } from "./src/routes/message.route.js";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { log } from "console";
+import { dir, log } from "console";
+import path from "path";
 
 const app = express();
 const server = createServer(app);
@@ -64,6 +65,17 @@ const dbpass = "test";
 
 app.use("/api/v1/user", userrouter);
 app.use("/api/v1/message", messagerouter);
+
+let node_env="production"
+// code for deployment
+if (node_env === "production") {
+  const dirPath = path.resolve();
+  app.use(express.static(path.join(dirPath, 'Frontend', 'dist')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.resolve(dirPath, 'Frontend', 'dist', 'index.html'));
+  });
+}
+
 
 server.listen(5002, "0.0.0.0", (req, res) => {
   console.log("App listening");

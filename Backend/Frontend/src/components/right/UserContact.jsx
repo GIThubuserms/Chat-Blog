@@ -18,7 +18,7 @@ function UserContact() {
       <div className='hover:bg-slate-600 p-2 rounded-md bg-slate-700  transition-all cursor-pointer  duration-200  h-[10vh] flex space-x-2 '>
             <div className={`hidden lg:flex avatar ${online?"online":"offline"}`}>
                 <div className="lg:w-18 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsaRe2zqH_BBicvUorUseeTaE4kxPL2FmOQ&s" />
                 </div>
             </div>
             <div className=''>
@@ -38,7 +38,7 @@ return (
     <div className='hover:bg-slate-600 p-2 rounded-md bg-slate-700  transition-all cursor-pointer  duration-200  h-[10vh] flex space-x-2 '>
           <div className="hidden  avatar online">
               <div className="lg:w-18 rounded-full">
-                  <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsaRe2zqH_BBicvUorUseeTaE4kxPL2FmOQ&s" />
               </div>
           </div>
           <div className=''>

@@ -15,7 +15,7 @@ function User({user}) {
         <div onClick={()=>setselectedconversation(user)} className={` ${isSelected?"bg-slate-600  ":""} hover:bg-slate-600 rounded-lg  transition-all cursor-pointer overflow-x-auto no-scrollbar duration-300 px-4 py-3 flex space-x-2 my-3 lg:m-5`}>
             <div className={`hidden lg:flex avatar ${online?"online":"offline"}`}>
                 <div className="lg:w-14 rounded-full">
-                    <img src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgsaRe2zqH_BBicvUorUseeTaE4kxPL2FmOQ&s" />
                 </div>
             </div>
             <div className=''>
