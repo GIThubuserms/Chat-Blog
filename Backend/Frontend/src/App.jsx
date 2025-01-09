@@ -1,7 +1,7 @@
 import React from 'react'
-import Logoutbtn from './components/mostleft/logoutbtn'
-import Left from './components/left/left'
-import Right from './components/right/right'
+import Logoutbtn from './components/mostleft/Logoutbtn.jsx'
+import Left from './components/left/Left.jsx'
+import Right from './components/right/Right.jsx'
 
 function App() {
   return (
